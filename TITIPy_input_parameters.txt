@@ -1,0 +1,8 @@
+***************************************************************************************************
+**********Input parameters for TITIPy (Topside Ionosphere Turbulence Indices with Python)**********
+***************************************************************************************************
+Y		Plotting of results (it requires additional time):  Y=yes, N=no
+10		Width of the window used for RODI, ROTEI, and ROTI calculation (in seconds, integer)
+1		TEC used for ROTI calculation: 1=absolute slant TEC   2=absolute vertical TEC   3=relative slant TEC
+
+
