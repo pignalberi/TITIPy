@@ -48,4 +48,4 @@ Alternatively, any Python IDLE (Integrated Development and Learning Environment)
 
 Results of the TITIPy run, data and figures (if wanted), are put in the folder (created during the run) named YYYYMMDDS, where YYYY=year, MM=month, DD=day of the month, and S=Swarm satellite, chosen through the terminal interface.
 
-For further info on TITIPy, please refers to the publication XXXXXXXXXXXXXXXX.
+For further info on TITIPy, please refers to the publication... (currently under review on Computers and Geosciences).
