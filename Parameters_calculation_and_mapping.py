@@ -150,10 +150,15 @@ for filename in filename_swarm:
         lat_QD_NP=-1.*(lat_QD_NP-90.)
         
         for i in range(len(lat_QD_NP)):
-            if(lat_QD_NP[i]>50):
+            if(lat_QD_NP[i]>=50):
                 lat_QD_NP[i]=np.nan
                 MLT_map_NP[i]=np.nan
                
+        for i in range(len(MLT_map_NP)):
+            if(MLT_map_NP[i]>=24):
+                MLT_map_NP[i]=np.nan
+                lat_QD_NP[i]=np.nan
+            
         binned_rodi_QD_MLT_NP=binning_2D(MLT_map_NP,lat_QD_NP,rod_parameters[2],0,24,0.25,0,50,2)  
         binned_roTei_QD_MLT_NP=binning_2D(MLT_map_NP,lat_QD_NP,roTe_parameters[2],0,24,0.25,0,50,2)  
         binned_Ne_QD_MLT_NP=binning_2D(MLT_map_NP,lat_QD_NP,Ne,0,24,0.25,0,50,2)  
@@ -166,9 +171,14 @@ for filename in filename_swarm:
         lat_QD_SP=lat_QD_SP+90.
         
         for i in range(len(lat_QD_SP)):
-            if(lat_QD_SP[i]>50):
+            if(lat_QD_SP[i]>=50):
                 lat_QD_SP[i]=np.nan
                 MLT_map_SP[i]=np.nan
+        
+        for i in range(len(MLT_map_SP)):
+            if(MLT_map_SP[i]>=24):
+                MLT_map_SP[i]=np.nan
+                lat_QD_SP[i]=np.nan
                 
         binned_rodi_QD_MLT_SP=binning_2D(MLT_map_SP,lat_QD_SP,rod_parameters[2],0,24,0.25,0,50,2)  
         binned_roTei_QD_MLT_SP=binning_2D(MLT_map_SP,lat_QD_SP,roTe_parameters[2],0,24,0.25,0,50,2)  
@@ -1032,7 +1042,8 @@ for filename in filename_swarm:
     Z_prime=X_diff*np.cos(lat_LEO)*np.cos(lon_LEO)+Y_diff*np.cos(lat_LEO)*np.sin(lon_LEO)+Z_diff*np.sin(lat_LEO)
     
     #GPS look angles
-    Az=np.arctan(Y_prime/X_prime)
+    #Az=np.arctan(Y_prime/X_prime)
+    Az=np.arctan2(Y_prime,X_prime)
     Ze=np.arccos(Z_prime/dist)
     El=np.pi/2-Ze
         
@@ -1070,7 +1081,7 @@ for filename in filename_swarm:
     
     print('    Saving output file...')
     
-    filename_output='Swarm_TEC_'+SAT+'_'+YEAR+'_'+MONTH+'_'+DAY+'_PRN'+str(PRN).zfill(2)+'_output.txt'
+    filename_output='Swarm_TEC_2Hz_'+SAT+'_'+YEAR+'_'+MONTH+'_'+DAY+'_PRN'+str(PRN).zfill(2)+'_output.txt'
     f=open(os.path.join(path_output,'data','TEC',filename_output),'w')
     f.write('year          month	       day	  	hour	   	min	   	sec	   	msec	    	doy	      	  hourUT		  hourLT	   	   MLT		    	LatGeo_LEO		LonGeo_LEO		Radius [m]	       Height [km]	         LatMag_QD		 LonMag_QD	      Abs_STEC [TECU]       Abs_VTEC [TECU] 	     Rel_STEC [TECU] 	  Rel_STEC_RMS [TECU]   		Elev_Angle     	PRN         	LatGeo_IPP             LonGeo_IPP          Height_IPP [km]                  ROT [TECU/s]    		ROTI [TECU/s]  	   ROT_mean [TECU/s] 		   TEC_grad [TECU/km]   	   mean_TEC [TECU]\n')
     for i in range(len(prn)):
