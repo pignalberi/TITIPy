@@ -20,7 +20,7 @@ spacepy 0.2.1+
 
 It is suggested to install Python through Anaconda (https://www.anaconda.com/products/individual). 
 After that, Python needed libraries can be installed with the following commands from terminal:
-conda install basemap
+conda install -c conda-forge basemap
 conda install basemap-data-hires
 pip install apexpy
 pip install patool
@@ -48,4 +48,4 @@ Alternatively, any Python IDLE (Integrated Development and Learning Environment)
 
 Results of the TITIPy run, data and figures (if wanted), are put in the folder (created during the run) named YYYYMMDDS, where YYYY=year, MM=month, DD=day of the month, and S=Swarm satellite, chosen through the terminal interface.
 
-For further info on TITIPy, please refers to the publication... (currently under review on Computers and Geosciences).
+For further info on TITIPy, please refers to the publication: Pignalberi, A. (2021) TITIPy: A Python tool for the calculation and mapping of topside ionosphere turbulence indices. Computers & Geosciences,148, 104675. doi: 10.1016/j.cageo.2020.104675
