@@ -1019,9 +1019,9 @@ for filename in filename_swarm:
     
     
     #cartesian geodetic WGS84 coordinates
-    GPS_position_wgs84 = coordinates.Coords(np.matrix((GPS_Position_X,GPS_Position_Y,GPS_Position_Z)).T, 'GDZ', 'car')
+    GPS_position_wgs84 = coordinates.Coords(np.matrix((GPS_Position_X,GPS_Position_Y,GPS_Position_Z)).T, 'GEO', 'car')
     GPS_position_wgs84.ticks = Ticktock(date_str, 'ISO')
-    LEO_position_wgs84 = coordinates.Coords(np.matrix((LEO_Position_X,LEO_Position_Y,LEO_Position_Z)).T, 'GDZ', 'car') 
+    LEO_position_wgs84 = coordinates.Coords(np.matrix((LEO_Position_X,LEO_Position_Y,LEO_Position_Z)).T, 'GEO', 'car') 
     LEO_position_wgs84.ticks = Ticktock(date_str, 'ISO')
     
     #converting in geographic spherical coordinates
