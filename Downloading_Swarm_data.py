@@ -5,7 +5,7 @@ Created on Fri Feb 14 15:36:15 2020
 @author: alessio
 """
 
-from ftplib import FTP
+from ftplib import FTP, FTP_TLS
 import os
 import patoolib
 import warnings
@@ -29,8 +29,8 @@ print('Downloading data from Swarm FTP...')
 
 try:
     for sat in SAT:
-        ftp = FTP('swarm-diss.eo.esa.int')   # connect to host, default port
-        ftp.login()               # user anonymous, passwd anonymous
+        ftp = FTP_TLS('swarm-diss.eo.esa.int')   # connect to host, default port
+        ftp.login(user=USERNAME,passwd=PASSWORD) # user and passwd declared in User_credentials.txt
         
         ftp.cwd('/Level1b/Latest_baselines/EFIx_LP/Sat_'+str(sat))
         
@@ -76,8 +76,8 @@ except RuntimeError:
 
 try:
     for sat in SAT:
-        ftp = FTP('swarm-diss.eo.esa.int')   # connect to host, default port
-        ftp.login()               # user anonymous, passwd anonymous
+        ftp = FTP_TLS('swarm-diss.eo.esa.int')   # connect to host, default port
+        ftp.login(user=USERNAME,passwd=PASSWORD) # user and passwd declared in User_credentials.txt
         
         ftp.cwd('/Level2daily/Latest_baselines/TEC/TMS/Sat_'+str(sat))
         

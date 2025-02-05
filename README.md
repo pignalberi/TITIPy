@@ -40,6 +40,7 @@ Functions.py, it contains several functions used for indices calculation and bin
 
 TITIPY_input_parameters.txt, through this file some parameters, other than those defined through the terminal interface, can be defined.
 logo.png, TITIPy logo figure image.
+User_credentials.txt, this file contains the username and password to access the ESA Swarm dissemination center. Please replace USERNAME and PASSWORD with your own credentials. To obtain credentials see https://earth.esa.int/eogateway/faq/how-do-i-access-swarm-data
 ###########################################################################################################################################################################################################
 TITPy tool can be run from terminal simply by navigating to the corresponding folder tool and by typing the following command:
 python Main.py

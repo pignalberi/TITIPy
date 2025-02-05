@@ -73,4 +73,17 @@ if(not (TEC_INPUT in (1,2,3))):
 file.close()
 
 
+###############################################################################
+#Reading of user credentials for access to the ESA Swarm dissemination center
+###############################################################################
+
+filename_user=os.path.join(os.getcwd(),'User_credentials.txt')
+file=open(filename_user,'r')
+
+lines=list(file)
+    
+USERNAME=lines[0].strip()
+PASSWORD=lines[1] .strip()   
+
+
    
